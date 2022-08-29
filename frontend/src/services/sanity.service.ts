@@ -14,18 +14,26 @@ export class SanityService {
 
     sanityClientCredentials = {
         option: sanityClient({
-          projectId: "ctnstz34",
-          dataset: "production"
+            projectId: "ctnstz34",
+            dataset: "production",
+            apiVersion: '2022-08-12',
+            useCdn: false
         })
-      }
+    }
 
     urlFor = (source: any) =>
-  imageUrlBuilder(this.sanityClientCredentials.option).image(source);
+        imageUrlBuilder(this.sanityClientCredentials.option).image(source);
 
-  getBlogs(): Observable<Blog[]>{
-    return scheduled(this.sanityClientCredentials.option.fetch(
-        `*[_type == "blog"]`
-      ), asapScheduler);
-  }
+    getBlogs(): Observable<Blog[]> {
+        return scheduled(this.sanityClientCredentials.option.fetch(
+            `*[_type == "blog"] {
+                author->,
+                content,
+                createdAt,
+                meta,
+                poster,
+                titles }`
+        ), asapScheduler);
+    }
 
 }

@@ -21,7 +21,12 @@
             "allowedCommonJsDependencies": ["@sanity/client", "@sanity/image-url"],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/images",
+              "src/fonts",
+              "src/uploads",
+              "src/css",
+              "src/js"
             ],
             "styles": [
               "src/styles.css"

@@ -3,8 +3,8 @@ export interface Blog {
     _type: string;
     titles: string;
     meta: string;
-    content: string;
-    poster: string;
+    content: any[];
+    poster: object;
     createdAt: string;
-    author: string;
+    author: object;
   }
