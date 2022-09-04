@@ -81,7 +81,9 @@ export default {
         {
             title: 'Created At',
             name: 'createdAt',
-            type: 'datetime'
+            type: 'datetime',
+            initialValue:(new Date()).toISOString(),
+            validation: Rule => Rule.required().min('2021-01-01T15:00:00.000Z')
         },
         {
             title: 'Author',

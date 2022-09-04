@@ -3,13 +3,17 @@
 <div *ngFor="let blog of blogs">
     <p *ngFor="let section of blog | keyvalue">
         <span>{{section.key}} - </span>
-        <span *ngIf="section.key == 'poster'"><img src="{{getImage(section.value)}}" alt=""></span>
-        <span *ngFor="let data of section.value |keyvalue">
+        <span *ngIf="section.key == 'poster'">
+            <img src="{{getImage(section.value).width(100).url()}}" alt="">
+        </span>
+        
+        <span  *ngFor="let data of section.value |keyvalue">
             <span *ngIf="data.key == 'image'">
-               <img src="{{getImage(data.value)}}" alt="Author image" width="100px">  
-            </span>    
+                <img src="{{getImage(data.value).width(100).url()}}" alt="image">
+            </span>
             {{data.key}} - {{data.value}}
         </span>
+        <span> {{section.value}}</span>
     </p>
 </div>
-<p [innerHtml] = "content"> </p>
+<p [innerHtml]="content"> </p>

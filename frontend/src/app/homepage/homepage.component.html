@@ -13,11 +13,11 @@
 </div>
 <p [innerHtml] = "content"> </p> -->
 
-<!-- <div id="preloader">
+<div id="preloader">
     <div id="main-ld">
         <div id="loader"></div>  
     </div>
-</div> --> 
+</div> 
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -362,67 +362,31 @@
             <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
         </div><!-- end title -->
         
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-lg-4">
+        <div class="row" >
+
+            <div class="col-md-4 col-sm-6 col-lg-4" *ngFor="let blog of blogs">
                 <div class="post-box">
+                    <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}" > 
                     <div class="post-thumb">
-                        <img src="../../uploads/blog-01.jpg" class="img-fluid" alt="post-img" />
+                            <img [src]="getImage(blog.poster).width(350).height(262).url()" class="img-fluid" alt="post-img" />
                         <div class="date">
-                            <span>06</span>
-                            <span>Aug</span>
+                            <span>{{blog.createdAt | date: 'LLL d'}}</span>
+
                         </div>
                     </div>
+                    </a>
                     <div class="post-info">
-                        <h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
+                        <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}" > <h4>{{blog.titles}}</h4> </a>
                         <ul>
-                            <li>by admin</li>
-                            <li>Apr 21, 2018</li>
-                            <li><a href="#"><b> Comments</b></a></li>
+                            <li>by {{blog.author.name}}&nbsp;</li>
+                            <li>|&nbsp;{{blog.createdAt | date: 'longDate'}}</li>
+                            <!-- <li><a href="#"><b> Comments</b></a></li> -->
                         </ul>
-                        <p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+                        <p> {{blog.meta | slice:0:140}} </p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-lg-4">
-                <div class="post-box">
-                    <div class="post-thumb">
-                        <img src="../../uploads/blog-02.jpg" class="img-fluid" alt="post-img" />
-                        <div class="date">
-                            <span>06</span>
-                            <span>Aug</span>
-                        </div>
-                    </div>
-                    <div class="post-info">
-                        <h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
-                        <ul>
-                            <li>by admin</li>
-                            <li>Apr 21, 2018</li>
-                            <li><a href="#"><b> Comments</b></a></li>
-                        </ul>
-                        <p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-lg-4">
-                <div class="post-box">
-                    <div class="post-thumb">
-                        <img src=" ../../uploads/blog-03.jpg" class="img-fluid" alt="post-img" />
-                        <div class="date">
-                            <span>06</span>
-                            <span>Aug</span>
-                        </div>
-                    </div>
-                    <div class="post-info">
-                        <h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
-                        <ul>
-                            <li>by admin</li>
-                            <li>Apr 21, 2018</li>
-                            <li><a href="#"><b> Comments</b></a></li>
-                        </ul>
-                        <p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         
     </div>

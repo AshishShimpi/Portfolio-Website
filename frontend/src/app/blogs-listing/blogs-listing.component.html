@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <img class="img-fluid" src="../../images/logo.png" alt="" />
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">About Us</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contect Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row mx-5 box-border">
+
+    <div class="blog col-md-4 col-sm-6 col-lg-4 " *ngFor="let blog of blogs">
+        <div class="post-box">
+            <!-- <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}" >  -->
+            <div class="post-thumb">
+                <img [src]="getImage(blog.poster).width(350).height(262).url()" class="img-fluid" alt="post-img" />
+                <div class="date">
+                    <span>{{blog.createdAt | date: 'LLL d'}}</span>
+                </div>
+            </div>
+            <!-- </a> -->
+            <div class="post-info">
+                <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}" > <h4>{{blog.titles}}...</h4> </a>
+                <ul>
+                    <li>by {{blog.author.name}}&nbsp;,</li>
+                    <li>&nbsp;{{blog.createdAt | date: 'longDate'}}</li>
+                    <!-- <li><a href="#"><b> Comments</b></a></li> -->
+                </ul>
+                <p> {{blog.meta | slice:0:140}} </p>
+            </div>
+        </div>
+    </div>
+
+</div>

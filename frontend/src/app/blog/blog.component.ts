@@ -3,8 +3,6 @@ import { ParamMap, ActivatedRoute, Route } from '@angular/router';
 import { SanityService } from '../../services/sanity.service';
 import { Blog } from '../models/blog.models';
 import { toHTML } from '@portabletext/to-html';
-import { asapScheduler, Observable, scheduled } from 'rxjs';
-
 @Component({
     selector: 'app-blog',
     templateUrl: './blog.component.html',
@@ -31,30 +29,34 @@ export class BlogComponent implements OnInit {
     }
 
     getImage(source: any) {
-        return this.sanityService.urlFor(source).width(200).url();
-    }
-
-    queryBlogs(): Observable<Blog[]> {
-        return scheduled(this.sanityService.sanityClientCredentials.option.fetch(
-            `*[_type == "blog"] {
-                _id,
-                author->{name},
-                content,
-                createdAt,
-                meta,
-                poster,
-                titles,
-                slug }`
-        ), asapScheduler);
+        return this.sanityService.urlFor(source);
     }
 
     getBlog(): void {
-        this.queryBlogs().subscribe({
+        this.sanityService.getBlogs(
+            `*[_type == 'blog' && _id == '${this.id}' ] {
+            _id,
+            author->{name},
+            content,
+            createdAt,
+            meta,
+            poster,
+            titles,
+            slug }`
+        ).subscribe({
             next: (blogs) => {
                 this.blogs = blogs;
                 console.log(`blog has been received`, blogs);
+                this.content = toHTML(blogs[0].content, {
+                    onMissingComponent: false,
+                    components: {
+                        types: {
+                            image: ({ value }) => `<img src="${this.getImage(value).width(100).url()}" />`,
+                        }
+                    }
+                });
             },
-            error: (err) => console.error(`query blogs failed`,err)
+            error: (err) => console.error(`query blogs failed`, err)
 
         })
     }

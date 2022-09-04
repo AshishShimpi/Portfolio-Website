@@ -1,0 +1,46 @@
+
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #333333 ;
+}
+.post-box .date {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    background: #333333;
+    color: #fff;
+    padding: 10px 15px;
+    text-align: center;
+}
+.row{
+    margin-top: 85px;
+}
+.row .blog {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+.post-box{
+    box-shadow: 0px 5px 30px 3px rgb(148 146 245 / 50%);
+}
+.row .blog .post-thumb .img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.post-box .post-thumb::before{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.row .blog .post-box{
+    border-radius: 10px;
+}
+.row .blog .post-info{
+    border-radius: 10px;
+    margin-top: 30px;
+}

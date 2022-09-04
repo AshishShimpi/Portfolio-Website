@@ -11,7 +11,15 @@ import { Blog } from '../app/models/blog.models';
 export class SanityService {
 
     constructor() { }
-
+    private defaultBlogQuery: string = `*[_type == "blog"] {
+        _id,
+        author->{name},
+        createdAt,
+        meta,
+        poster,
+        titles,
+        slug }`;
+        
     sanityClientCredentials = {
         option: sanityClient({
             projectId: "ctnstz34",
@@ -24,15 +32,9 @@ export class SanityService {
     urlFor = (source: any) =>
         imageUrlBuilder(this.sanityClientCredentials.option).image(source);
 
-    getBlogs(): Observable<Blog[]> {
+    getBlogs(query: string = this.defaultBlogQuery): Observable<Blog[]> {
         return scheduled(this.sanityClientCredentials.option.fetch(
-            `*[_type == "blog"] {
-                author->,
-                content,
-                createdAt,
-                meta,
-                poster,
-                titles }`
+            query
         ), asapScheduler);
     }
 
