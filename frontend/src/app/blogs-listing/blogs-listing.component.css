@@ -25,7 +25,7 @@
 .post-box{
     box-shadow: 0px 5px 30px 3px rgb(148 146 245 / 50%);
 }
-.row .blog .post-thumb .img-fluid {
+.row .blog .post-thumb .fluid {
     max-width: 100%;
     height: auto;
     border-top-left-radius: 10px;
@@ -43,4 +43,14 @@
 .row .blog .post-info{
     border-radius: 10px;
     margin-top: 30px;
+}
+
+.row .blog .post-info .meta{
+    overflow-y: hidden;
+    /* height: 32px; */
+}
+.row .blog .post-info .meta p{
+    max-width: fit-content;
+    margin-right: 0px;
+    height: inherit;
 }

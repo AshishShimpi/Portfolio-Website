@@ -41,22 +41,29 @@
 
     <div class="blog col-md-4 col-sm-6 col-lg-4 " *ngFor="let blog of blogs">
         <div class="post-box">
-            <!-- <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}" >  -->
-            <div class="post-thumb">
-                <img [src]="getImage(blog.poster).width(350).height(262).url()" class="img-fluid" alt="post-img" />
-                <div class="date">
-                    <span>{{blog.createdAt | date: 'LLL d'}}</span>
+            <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}">
+                <div class="post-thumb">
+                    <img [src]="getImage(blog.poster).width(350).height(262).url()" class="img-fluid fluid"
+                        alt="post-img" />
+                    <div class="date">
+                        <span>{{blog.createdAt | date: 'LLL d'}}</span>
+                    </div>
                 </div>
-            </div>
-            <!-- </a> -->
+            </a>
             <div class="post-info">
-                <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}" > <h4>{{blog.titles}}...</h4> </a>
+                <a [routerLink]="['/blog',blog.slug.current]" [queryParams]="{id: blog._id}">
+                    <h4>{{blog.titles}}...</h4>
+                </a>
                 <ul>
-                    <li>by {{blog.author.name}}&nbsp;,</li>
-                    <li>&nbsp;{{blog.createdAt | date: 'longDate'}}</li>
+                    <li>by <strong>{{blog.author.name}}</strong> ,</li>
+                    <li>&nbsp;{{blog.createdAt | date: 'longDate'}}.</li>
                     <!-- <li><a href="#"><b> Comments</b></a></li> -->
                 </ul>
-                <p> {{blog.meta | slice:0:140}} </p>
+                <div class="meta">
+                    <p>{{blog.meta | slice: 0:60}}
+                        <span>...</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

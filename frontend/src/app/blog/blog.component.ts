@@ -15,7 +15,7 @@ export class BlogComponent implements OnInit {
         private sanityService: SanityService,
     ) { }
 
-    blogs: Blog[] = [];
+    blog: Blog;
     content: string;
     id: string;
 
@@ -45,7 +45,7 @@ export class BlogComponent implements OnInit {
             slug }`
         ).subscribe({
             next: (blogs) => {
-                this.blogs = blogs;
+                this.blog = blogs[0];
                 console.log(`blog has been received`, blogs);
                 this.content = toHTML(blogs[0].content, {
                     onMissingComponent: false,
