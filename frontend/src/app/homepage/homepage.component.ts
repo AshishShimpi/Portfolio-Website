@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from '../../services/sanity.service';
 import { Blog } from '../models/blog.models';
+import { Profile } from '../models/profile.models';
 
 @Component({
     selector: 'app-homepage',
@@ -18,11 +19,21 @@ export class HomepageComponent implements OnInit {
         meta,
         poster,
         titles,
-        slug }[0...3]`
+        slug }[0...3]`;
+        
+    private profileQuery = `*[_type == "profile"] {
+        _id,
+        name,
+        pic,
+        email,
+        resume{asset->{url}},
+        contact }[0]`
 
     blogs: Blog[] = [];
+    profile: Profile;
 
     ngOnInit(): void {
+        this.getProfile();
         this.getBlogs();
     }
 
@@ -35,13 +46,27 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (blogs) => {
                     this.blogs = blogs;
-                    console.log(blogs);
+                    // console.log(blogs);
                 },
                 error: (error) => {
                     console.error('failed to fetch blogs\n', error);
                 }
             })
     }
+
+    getProfile(): void {
+        this.sanityService.getProfle(this.profileQuery)
+            .subscribe({
+                next: (profile) => {
+                    this.profile = profile;
+                    console.log(`profile received is`,profile);
+                },
+                error: (error) => {
+                    console.error('failed to fetch Profile\n', error);
+                }
+            })
+    }
+
 
 
 }

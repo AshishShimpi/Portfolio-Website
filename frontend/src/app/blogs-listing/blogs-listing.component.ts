@@ -27,7 +27,7 @@ export class BlogsListingComponent implements OnInit {
             .subscribe({
                 next: (blogs) => {
                     this.blogs = blogs;
-                    console.log(`All blog has been received`, blogs);
+                    // console.log(`All blog has been received`, blogs);
                 },
                 error: (err) => console.error(`query blogs failed`, err)
             })

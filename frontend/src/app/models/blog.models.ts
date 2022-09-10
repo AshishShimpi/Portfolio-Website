@@ -7,5 +7,5 @@ export interface Blog {
     content: any[];
     poster: object;
     createdAt: string;
-    author: string;
+    author: object;
   }

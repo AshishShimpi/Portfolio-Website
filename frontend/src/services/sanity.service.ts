@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import imageUrlBuilder from "@sanity/image-url";
 const sanityClient = require('@sanity/client');
 import { asapScheduler, Observable, scheduled } from 'rxjs';
+import { Profile } from 'src/app/models/profile.models';
 import { Blog } from '../app/models/blog.models';
 
 @Injectable({
@@ -33,6 +34,11 @@ export class SanityService {
         imageUrlBuilder(this.sanityClientCredentials.option).image(source);
 
     getBlogs(query: string = this.defaultBlogQuery): Observable<Blog[]> {
+        return scheduled(this.sanityClientCredentials.option.fetch(
+            query
+        ), asapScheduler);
+    }
+    getProfle(query: string = this.defaultBlogQuery): Observable<Profile> {
         return scheduled(this.sanityClientCredentials.option.fetch(
             query
         ), asapScheduler);

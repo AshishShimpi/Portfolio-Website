@@ -21,14 +21,25 @@
     <img [src]="getImage(blog.poster).url()" class="w-full h-full object-cover" />
 </div>
 
-<div class="max-w-4xl mx-auto bg-white py-12 px-12 lg:px-24 -mt-32 mb-8 relative z-10 shadow-lg mb-32">
-    <h2 class="mt-4 uppercase tracking-widest text-xs text-gray-600">
-        {{blog.createdAt | date: 'medium'}}
-    </h2>
+<div class="main max-w-4xl mx-auto bg-white py-12 px-12 lg:px-24 -mt-32 mb-8 relative z-10 shadow-lg mb-32">
+    <div class="author flex items-center gap-8">
+        <div class="author-image w-20 h-20 flex items-center justify-center rounded-full overflow-hidden shadow-xl 
+        hover:overflow-visible shadow-xl" >
+            <img [src]="getImage(blog.author['image']).width(120).height(120).url()" class="w-full h-full object-cover hover:w-24 h-24 rounded-full" />
+        </div>
+        <div class="author-info grid grid-cols-1 items-center text-xl">
+            <h3 class="p-1.5">
+                {{blog.author['name']}}
+            </h3>
+            <h2 class="uppercase tracking-widest text-xs text-gray-600 p-1.5">
+                {{blog.createdAt | date: 'longDate'}}
+            </h2>
+        </div>
+    </div>
     <h1 class="font-display text-2xl md:text-3xl text-gray-900 mt-4">
         {{blog.titles}}
     </h1>
-    <div class="prose prose-sm sm:prose lg:prose-lg mt-6" [innerHtml]="content">
+    <div class="content prose prose-sm sm:prose lg:prose-lg mt-6" [innerHtml]="content">
 
     </div>
 </div>

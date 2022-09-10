@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ParamMap, ActivatedRoute, Route } from '@angular/router';
 import { SanityService } from '../../services/sanity.service';
 import { Blog } from '../models/blog.models';
@@ -6,7 +6,8 @@ import { toHTML } from '@portabletext/to-html';
 @Component({
     selector: 'app-blog',
     templateUrl: './blog.component.html',
-    styleUrls: ['./blog.component.css']
+    styleUrls: ['./blog.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class BlogComponent implements OnInit {
 
@@ -20,10 +21,10 @@ export class BlogComponent implements OnInit {
     id: string;
 
     ngOnInit(): void {
-        console.log(`blog works`);
+        // console.log(`blog works`);
         this.route.queryParams.subscribe(params => {
             this.id = params['id'];
-            console.log('id from url is ', this.id);
+            // console.log('id from url is ', this.id);
         });
         this.getBlog();
     }
@@ -36,7 +37,7 @@ export class BlogComponent implements OnInit {
         this.sanityService.getBlogs(
             `*[_type == 'blog' && _id == '${this.id}' ] {
             _id,
-            author->{name},
+            author->{name,image},
             content,
             createdAt,
             meta,
@@ -46,12 +47,13 @@ export class BlogComponent implements OnInit {
         ).subscribe({
             next: (blogs) => {
                 this.blog = blogs[0];
-                console.log(`blog has been received`, blogs);
+                // console.log(`blog has been received`, blogs);
                 this.content = toHTML(blogs[0].content, {
                     onMissingComponent: false,
                     components: {
                         types: {
-                            image: ({ value }) => `<img src="${this.getImage(value).width(100).url()}" />`,
+                            image: ({ value }) => 
+                            `<div class="imageof"> <img src="${this.getImage(value).width(700).height(300).url()}" /> </div>`,
                         }
                     }
                 });

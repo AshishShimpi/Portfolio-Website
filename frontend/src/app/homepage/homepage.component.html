@@ -22,9 +22,11 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <img class="img-fluid" src="../../images/logo.png" alt="" />
-        </a>
+        <div class="logo">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <img class="img-fluid" src="../../images/logo.svg" alt="" />
+            </a>
+        </div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -37,40 +39,38 @@
                     <a class="nav-link js-scroll-trigger active" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About Us</a>
+                    <a class="nav-link js-scroll-trigger" href="#about">About Me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                    <a class="nav-link js-scroll-trigger" href="#services">Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Projects</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#testimonials">Testimonials</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contect Us</a>
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contact Me</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section id="home" class="main-banner parallaxie" style="background: url('../../uploads/banner-01.jpg')">
+<section id="home" class="main-banner parallaxie" style="background: url('../../uploads/background.jpg')">
     <div class="heading">
-        <h1>hello i'm Dominic</h1>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua."</p>
+        <h1>Hello i'm {{profile.name}}</h1>
+        <p>"Welcome to my Portfolio Website"</p>
         <h3 class="cd-headline clip is-full-width">
-            <span>Lorem ipsum dolor sit amet&nbsp;</span>
+            <span>I am&nbsp;</span>
             <span class="cd-words-wrapper">
-                <b class="is-visible"> Web Developer</b>
-                <b> Web Design</b>
-                <b> Creative Design</b>
-                <b> Graphic Design</b>
+                <b class="is-visible"> Blockchain Enthusiast</b>
+                <b> Problem solver </b>
+                <b> Web Developer </b>
             </span>
         </h3>
     </div>
@@ -104,23 +104,25 @@
 <div id="about" class="section wb">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="message-box">
-                    <h2>About Dominic.</h2>
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus
-                        bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis
-                        parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet libero
-                        bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo. </p>
-                    <p>Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu
-                        bibendum risus. Phasellus et congue justo.</p>
+            <div class="col-md-7">
+                <div class="message-box" style="font-size: 18px;">
+                    <h2>About {{profile.name}}.</h2>
+                    <p>&nbsp;&nbsp; I am B.E. Computer 2021 passout. I have <b>8 months</b> of full time experience as a
+                        Software Engineer
+                        at <b>Zeus Learning LTD</b> and have thorough knowledge in
+                        <u>Angular, Django, MySQL</u> stack.
+                        I have done Internship as <b>Blockchain Intern</b>.
+                    </p>
 
-                    <a href="#" class="sim-btn btn-hover-new" data-text="Download CV"><span>Download CV</span></a>
+                    <a href="{{profile.resume.asset.url }}?&dl=" class="sim-btn btn-hover-new"
+                        data-text="Download CV"><span>Download CV</span></a>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
 
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="right-box-pro wow fadeIn">
-                    <img src="../../uploads/about_04.jpg" alt="" class="img-fluid img-rounded">
+                    <img src="{{getImage(profile.pic).width(790).height(690).url()}}" alt=""
+                        class="img-fluid img-rounded">
                 </div><!-- end media -->
             </div><!-- end col -->
         </div><!-- end row -->
@@ -130,69 +132,70 @@
 <div id="services" class="section lb">
     <div class="container">
         <div class="section-title text-left">
-            <h3>Services</h3>
-            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            <h3>Skills</h3>
+            <!-- <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p> -->
         </div><!-- end title -->
 
         <div class="row">
             <div class="col-md-4">
                 <div class="services-inner-box">
-                    <div class="ser-icon">
-                        <i class="flaticon-seo"></i>
+                    <div class="ser-icon ">
+                        <img class="i-1" src="../../assets/angular_logo.png" >
                     </div>
-                    <h2>Web Development</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h2>Angular</h2>
+                    <p>Angular is a development platform, built on TypeScript.It is a component-based framework for
+                        building scalable web applications</p>
                 </div>
             </div><!-- end col -->
             <div class="col-md-4">
                 <div class="services-inner-box">
                     <div class="ser-icon">
-                        <i class="flaticon-development"></i>
+                        <img class="i-2" src="../../assets/eth-diamond-black.png" alt="">
                     </div>
-                    <h2>Responsive Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h2>Blockchain</h2>
+                    <p>A blockchain is a distributed database or ledger that is shared among the nodes of a computer
+                        network.</p>
                 </div>
             </div><!-- end col -->
             <div class="col-md-4">
                 <div class="services-inner-box">
                     <div class="ser-icon">
-                        <i class="flaticon-process"></i>
+                        <img class="i-3" src="../../assets/django-logo-negative.svg" >
                     </div>
-                    <h2>Creative Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h2>Django</h2>
+                    <p>Django is a high-level Python web framework that encourages rapid development and clean,
+                        pragmatic design. With Django, you can take web applications from concept to launch in a matter
+                        of hours. </p>
                 </div>
             </div><!-- end col -->
             <div class="col-md-4">
                 <div class="services-inner-box">
                     <div class="ser-icon">
-                        <i class="flaticon-discuss-issue"></i>
+                        <img class="i-4" src="../../assets/logo-mysql.png" >
                     </div>
-                    <h2>Support</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h2>MySQL</h2>
+                    <p>MySQL, the most popular Open Source SQL database management system, is developed, distributed,
+                        and supported by Oracle Corporation.</p>
                 </div>
             </div><!-- end col -->
             <div class="col-md-4">
                 <div class="services-inner-box">
                     <div class="ser-icon">
-                        <i class="flaticon-idea"></i>
+                        <img class="i-5" src="../../assets/nodejs.svg" >
                     </div>
-                    <h2>Web Idea</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h2>NodeJS</h2>
+                    <p>Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. As an asynchronous
+                        event-driven JavaScript runtime, Node.js is designed to build scalable network applications.</p>
                 </div>
             </div><!-- end col -->
             <div class="col-md-4">
                 <div class="services-inner-box">
                     <div class="ser-icon">
-                        <i class="flaticon-idea-1"></i>
+                        <img class="i-6" src="../../assets/icon_flutter.svg" >
                     </div>
-                    <h2>Graphic Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h2>Flutter</h2>
+                    <p>Flutter is an open source framework by Google for building beautiful, natively compiled,
+                        multi-platform applications from a single codebase.</p>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -203,17 +206,17 @@
 <div id="portfolio" class="section lb">
     <div class="container">
         <div class="section-title text-left">
-            <h3>Portfolio</h3>
-            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            <h3>Projects</h3>
+            <p>All the Projects i made in following technologies.</p>
         </div><!-- end title -->
 
         <div class="gallery-menu row">
             <div class="col-md-12">
                 <div class="button-group filter-button-group text-left">
                     <button class="active" data-filter="*">All</button>
-                    <button data-filter=".gal_a">Web Development</button>
-                    <button data-filter=".gal_b">Creative Design</button>
-                    <button data-filter=".gal_c">Graphic Design</button>
+                    <button data-filter=".gal_a">Angular</button>
+                    <button data-filter=".gal_b">Blockchain</button>
+                    <button data-filter=".gal_c">Django/NodeJS</button>
                 </div>
             </div>
         </div>
@@ -229,7 +232,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 gallery-grid gal_c gal_b">
+            <div class="col-md-4 col-sm-6 gallery-grid  gal_b" [ngClass]="'gal_c'">
                 <div class="gallery-single fix">
                     <img src="../../uploads/gallery_img-02.jpg" class="img-fluid" alt="Image">
                     <div class="img-overlay">
@@ -283,13 +286,12 @@
 </div>
 
 
-<div id="testimonials" class="section wb">
+<!-- <div id="testimonials" class="section wb">
     <div class="container">
         <div class="section-title text-left">
             <h3>Testimonials</h3>
             <p>We thanks for all our awesome testimonials! There are hundreds of our happy customers! </p>
-        </div><!-- end title -->
-        <!-- Trash class -->
+        </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="testi-carousel owl-carousel owl-theme">
@@ -303,9 +305,8 @@
                             <img src="../../uploads/testi_01.png" alt="" class="img-fluid fluid alignleft">
                             <h4>James Fernando <small>- Manager of Racer</small></h4>
                         </div>
-                        <!-- end testi-meta -->
+                        
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -317,9 +318,7 @@
                             <img src="../../uploads/testi_02.png" alt="" class="img-fluid alignleft">
                             <h4>Jacques Philips <small>- Designer</small></h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -331,9 +330,7 @@
                             <img src="../../uploads/testi_03.png" alt="" class="img-fluid alignleft">
                             <h4>Venanda Mercy <small>- Newyork City</small></h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
                     <div class="testimonial clearfix">
                         <div class="desc">
                             <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
@@ -344,9 +341,7 @@
                             <img src="../../uploads/testi_01.png" alt="" class="img-fluid alignleft">
                             <h4>James Fernando <small>- Manager of Racer</small></h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -358,9 +353,7 @@
                             <img src="../../uploads/testi_02.png" alt="" class="img-fluid alignleft">
                             <h4>Jacques Philips <small>- Designer</small></h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -372,19 +365,18 @@
                             <img src="../../uploads/testi_03.png" alt="" class="img-fluid alignleft">
                             <h4>Venanda Mercy <small>- Newyork City</small></h4>
                         </div>
-                        <!-- end testi-meta -->
-                    </div><!-- end testimonial -->
-                </div><!-- end carousel -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
 <div id="blog" class="section lb">
     <div class="container">
         <div class="section-title text-left">
             <h3>Blog</h3>
-            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            <p></p>
         </div><!-- end title -->
 
         <div class="row">
@@ -425,10 +417,10 @@
     <div class="container">
         <div class="section-title text-left">
             <h3>Contact</h3>
-            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            <p>If you wish to contact me for any job opportunities, please email at <b id="email">ashishpawarr00@gmail.com</b></p>
         </div><!-- end title -->
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="contact_form">
                     <div id="message"></div>
@@ -470,8 +462,9 @@
                         </div>
                     </form>
                 </div>
-            </div><!-- end col -->
-        </div><!-- end row -->
+            </div>
+        </div> -->
+        
     </div><!-- end container -->
 </div><!-- end section -->
 
@@ -480,15 +473,9 @@
         <div class="footer-distributed">
             <div class="footer-left">
                 <p class="footer-links">
-                    <a href="#">Home</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">About</a>
-                    <a href="#">Faq</a>
-                    <a href="#">Contact</a>
-                </p>
-                <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">Dominic</a> Design By :
-                    <a href="https://html.design/">html design</a>
+                    <a href="#home">Home</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#about">About</a>
                 </p>
             </div>
         </div>

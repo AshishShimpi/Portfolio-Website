@@ -4,5 +4,4 @@ module.exports = {
       './components/**/*.{html,js}',
       './src/**/*.{html,js}',
     ],
-    // ...
   }

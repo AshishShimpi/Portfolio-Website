@@ -1,17 +1,29 @@
+.navbar .container .logo {
+    display: flex;
+    height: 55px;
+    overflow: hidden;
+    margin-left: -50px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
 
 .filter-button-group {
     display: flex;
     gap: 6px;
     border: none;
 }
+
 .filter-button-group button.active {
     background: #333333;
     color: #fff;
     box-shadow: -1px 8px 10px 2px rgb(0 0 0 / 30%);
 }
-.post-box{
+
+.post-box {
     box-shadow: 0px 5px 30px 3px rgb(148 146 245 / 50%);
 }
+
 .fluid {
     max-width: 100%;
     height: auto;
@@ -19,15 +31,81 @@
     border-top-right-radius: 6px;
 }
 
-.post-thumb::before{
+.post-thumb::before {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
 
-.post-box{
+.post-box {
     border-radius: 6px;
 }
-.post-info{
+
+.post-info {
     border-radius: 6px;
     margin-top: 30px;
 }
+
+.services-inner-box {
+    padding: 0 15px 15px 15px;
+    background: #ffffff;
+    margin-bottom: 30px;
+}
+
+.ser-icon {
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    line-height: 90px;
+}
+
+.ser-icon .i-1 {
+    height: 90%;
+    width: 90%;
+}
+
+.ser-icon .i-2 {
+    height: 80% ;
+    width: 60% ;
+}
+
+.ser-icon .i-3 {
+    height: 90%;
+    width: 140%;
+}
+
+.ser-icon .i-4 {
+    height: 85%;
+    width: 150%;
+}
+
+.ser-icon .i-5 {
+    height: 50%;
+}
+
+.ser-icon .i-6 {
+    height: 97%;
+}
+
+#contact {
+    background: none;
+    background-color: #333333;
+}
+
+#contact .container .section-title {
+    margin-bottom: 20px;
+}
+
+#contact .container .section-title b {
+    font-size: 25px;
+}
+
+
+@media screen and (max-width: 415px) {
+    .navbar .container .logo {
+        height: 40px;
+    }
+    #contact .container .section-title b {
+        font-size: 20px;
+    }
+}
+
