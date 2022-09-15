@@ -1,7 +1,24 @@
 /* @tailwind base;  */
-/* @tailwind components;
-@tailwind utilities; */
+@tailwind components;
+@tailwind utilities;
 
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #333333 ;
+}
+.navbar .container .logo {
+    display: flex;
+    height: 55px;
+    overflow: hidden;
+    margin-left: -50px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.relative {
+   margin-top: 75px;
+}
 
 blockquote {
     background: #f9f9f9;

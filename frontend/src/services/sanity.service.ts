@@ -18,6 +18,7 @@ export class SanityService {
         createdAt,
         meta,
         poster,
+        "original_url":poster{asset->{url}},
         titles,
         slug }`;
         

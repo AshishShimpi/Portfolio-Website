@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { SanityService } from '../../services/sanity.service';
+import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { Blog } from '../models/blog.models';
 import { Profile } from '../models/profile.models';
-
 @Component({
     selector: 'app-homepage',
     templateUrl: './homepage.component.html',
@@ -10,7 +11,10 @@ import { Profile } from '../models/profile.models';
 })
 export class HomepageComponent implements OnInit {
 
-    constructor(private sanityService: SanityService) { }
+    constructor(
+        private sanityService: SanityService,
+        public dialog: MatDialog
+    ) { }
 
     private homeBlogQuery = `*[_type == "blog"] {
         _id,
@@ -18,9 +22,10 @@ export class HomepageComponent implements OnInit {
         createdAt,
         meta,
         poster,
+        "original_url":poster{asset->{url}},
         titles,
         slug }[0...3]`;
-        
+
     private profileQuery = `*[_type == "profile"] {
         _id,
         name,
@@ -59,7 +64,7 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (profile) => {
                     this.profile = profile;
-                    console.log(`profile received is`,profile);
+                    console.log(`profile received is`, profile);
                 },
                 error: (error) => {
                     console.error('failed to fetch Profile\n', error);
@@ -67,6 +72,12 @@ export class HomepageComponent implements OnInit {
             })
     }
 
-
+    openDialog(): void {
+        this.dialog.open(InfoDialogComponent,{
+            width: '700px',
+            height: '500px',
+            data:{name:'ashish'},
+        })
+    }
 
 }

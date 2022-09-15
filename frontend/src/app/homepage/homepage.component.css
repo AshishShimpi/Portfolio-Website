@@ -8,7 +8,9 @@
     justify-content: center;
 }
 
-.sim-btn, .right-box-pro img, .right-box-pro::before{
+.sim-btn,
+.right-box-pro img,
+.right-box-pro::before {
     border-radius: 6px;
 }
 
@@ -31,8 +33,8 @@
 }
 
 .ser-icon .i-2 {
-    height: 80% ;
-    width: 60% ;
+    height: 80%;
+    width: 60%;
 }
 
 .ser-icon .i-3 {
@@ -52,13 +54,70 @@
 .ser-icon .i-6 {
     height: 97%;
 }
+
 .services-inner-box {
     box-shadow: 0px 2px 8px -4px rgb(0 0 0 / 75%);
     border-radius: 6px;
 }
 
-.gallery-single{
+.gallery-single {
     border-radius: 6px;
+}
+
+.gallery-single img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-list .img-overlay {
+    position: absolute;
+    /* top: 0px; */
+    /* left: 0px; */
+    /* right: 0px; */
+    bottom: 10px;
+    opacity: 1;
+    -webkit-transform: unset;
+    transform: unset;
+}
+
+.gallery-single .project-name {
+    text-align: center;
+    color: white;
+    margin: 25px;
+    margin-top: 30px;
+    overflow: hidden;
+    font-size: 35px;
+    height: 140px;
+}
+
+.gallery-single .hoverbutton {
+    top: 90%;
+    background-color: #16151e;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-single .hoverbutton .fa {
+    font-size: 30px;
+}
+
+.gallery-list .gallery-single:hover .img-overlay .hoverbutton {
+    top: 70%;
+}
+
+.gallery-list .gallery-single:hover .img-overlay {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 
 .filter-button-group {
@@ -98,6 +157,31 @@
     margin-top: 30px;
 }
 
+.post-info h4 {
+    height: 54px;
+    overflow: hidden;
+    max-width: fit-content;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+}
+
+#blog .container .section-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+#blog .container .section-title .blog-button {
+    height: 50px;
+    border-radius: 5px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.btn-hover-new::after {
+    left: 18px;
+}
+
 #contact {
     background: none;
     background-color: #333333;
@@ -116,8 +200,16 @@
     .navbar .container .logo {
         height: 40px;
     }
+
     #contact .container .section-title b {
         font-size: 20px;
     }
 }
 
+.footer-distributed .footer-links {
+    margin: 0;
+}
+
+.copyrights {
+    padding: 15px 0;
+}

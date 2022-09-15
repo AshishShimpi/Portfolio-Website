@@ -4,6 +4,15 @@
     padding-bottom: 10px;
     background-color: #333333 ;
 }
+.navbar .container .logo {
+    display: flex;
+    height: 55px;
+    overflow: hidden;
+    margin-left: -50px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
 .post-box .date {
     display: inline-block;
     position: absolute;
@@ -14,6 +23,19 @@
     padding: 10px 15px;
     text-align: center;
 }
+
+.post-thumb {
+    position: relative;
+    width: 350px;
+    height: 262px;
+}
+
+.post-info h4 {
+    height: 54px;
+    overflow: hidden;
+    max-width: fit-content;
+}
+
 .row{
     margin-top: 85px;
 }
