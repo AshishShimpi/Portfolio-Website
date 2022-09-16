@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 const sanityClient = require('@sanity/client');
 import { asapScheduler, Observable, scheduled } from 'rxjs';
 import { Profile } from 'src/app/models/profile.models';
+import { Project } from 'src/app/models/project.models';
 import { Blog } from '../app/models/blog.models';
 
 @Injectable({
@@ -21,7 +22,8 @@ export class SanityService {
         "original_url":poster{asset->{url}},
         titles,
         slug }`;
-        
+    private defaultPeojectQuery: string = `*[_type == "projects"]`;
+
     sanityClientCredentials = {
         option: sanityClient({
             projectId: "ctnstz34",
@@ -39,10 +41,18 @@ export class SanityService {
             query
         ), asapScheduler);
     }
-    getProfle(query: string = this.defaultBlogQuery): Observable<Profile> {
+
+    getProfle(query: string): Observable<Profile> {
         return scheduled(this.sanityClientCredentials.option.fetch(
             query
         ), asapScheduler);
     }
+
+    getProjects(query: string = this.defaultPeojectQuery ): Observable<Project[]> {
+        return scheduled(this.sanityClientCredentials.option.fetch(
+            query
+        ), asapScheduler);
+    }
+
 
 }

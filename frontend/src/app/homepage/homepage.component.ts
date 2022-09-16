@@ -4,6 +4,7 @@ import { SanityService } from '../../services/sanity.service';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { Blog } from '../models/blog.models';
 import { Profile } from '../models/profile.models';
+import { Project } from '../models/project.models';
 @Component({
     selector: 'app-homepage',
     templateUrl: './homepage.component.html',
@@ -13,7 +14,7 @@ export class HomepageComponent implements OnInit {
 
     constructor(
         private sanityService: SanityService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
     ) { }
 
     private homeBlogQuery = `*[_type == "blog"] {
@@ -32,14 +33,16 @@ export class HomepageComponent implements OnInit {
         pic,
         email,
         resume{asset->{url}},
-        contact }[0]`
+        contact }[0]`;
 
     blogs: Blog[] = [];
     profile: Profile;
+    projects: Project[] = [];
 
     ngOnInit(): void {
         this.getProfile();
         this.getBlogs();
+        this.getProjects();
     }
 
     getImage(source: any) {
@@ -72,11 +75,24 @@ export class HomepageComponent implements OnInit {
             })
     }
 
-    openDialog(): void {
-        this.dialog.open(InfoDialogComponent,{
-            width: '700px',
-            height: '500px',
-            data:{name:'ashish'},
+    getProjects() {
+        this.sanityService.getProjects()
+            .subscribe({
+                next: (projects) => {
+                    this.projects = projects; 
+                    console.log('All projects', projects);
+                },
+                error: (error) => {
+                    console.error('failed to fetch Projects\n', error);
+                }
+            })
+    }
+
+    openDialog(project: Project): void {
+        this.dialog.open(InfoDialogComponent, {
+            // width: '700px',
+            // height: '500px',
+            data: { project: project},
         })
     }
 

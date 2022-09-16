@@ -207,151 +207,40 @@
         <div class="section-title text-left">
             <h3>Projects</h3>
             <p>All the Projects i made in following technologies.</p>
-        </div><!-- end title -->
+        </div>
 
-        <div class="gallery-menu row">
+        <!-- <div class="gallery-menu row">
             <div class="col-md-12">
                 <div class="button-group filter-button-group text-left">
                     <button class="active" data-filter="*">All</button>
-                    <button data-filter=".gal_a">Angular</button>
-                    <button data-filter=".gal_b">Blockchain</button>
-                    <button data-filter=".gal_c">Django/NodeJS</button>
+                    <button data-filter=".gal_ab">Angular</button>
+                    <button data-filter=".gal_bb">Blockchain</button>
+                    <button data-filter=".gal_cb">Django/NodeJS</button>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="gallery-list row">
-            <div class="col-md-6 col-sm-12 gallery-grid gal_a gal_b">
+
+            <div class="col-md-6 col-sm-12 gallery-grid" [ngClass]="{
+                    'gal_ab':pro.front == 'angular',
+                    'gal_bb': pro.other == 'other',
+                    'gal_cb': pro.back == 'django' || pro.back == 'nodejs' 
+                }" *ngFor="let pro of projects">
                 <div class="gallery-single fix">
-                    <img src="../../uploads/gallery_img-01.jpg" class="img-fluid" alt="Image">
+                    <img src="{{getImage(pro.image).height(310).width(510).fit('clip').url()}}" class="img-fluid" alt="Image">
                     <div class="img-overlay">
                         <div class="project-name">
-                            <p>project name is project.
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                <!-- {{blog.meta | slice: 0:60}} -->
-                                <span>...</span>
-                            </p>
+                            <p>{{pro.name}}</p>
                         </div>
-                        <button type="button" (click)="openDialog()" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius">
+                        <button type="button" (click)="openDialog(pro)" data-rel="prettyPhoto[gal]"
+                            class="hoverbutton global-radius">
                             <i class="fa fa-expand"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-12 gallery-grid  gal_b" [ngClass]="'gal_c'">
-                <div class="gallery-single fix">
-                    <img src="../../uploads/gallery_img-02.jpg" class="img-fluid" alt="Image">
-                    <div class="img-overlay">
-                        <div class="project-name">
-                            <p>project name is project.
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                <!-- {{blog.meta | slice: 0:60}} -->
-                                <span>...</span>
-                            </p>
-                        </div>
-                        <a href="#" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i
-                                class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-12 gallery-grid gal_a gal_c">
-                <div class="gallery-single fix">
-                    <img src="../../uploads/gallery_img-03.jpg" class="img-fluid" alt="Image">
-                    <div class="img-overlay">
-                        <div class="project-name">
-                            <p>project name is project.
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                <!-- {{blog.meta | slice: 0:60}} -->
-                                <span>...</span>
-                            </p>
-                        </div>
-                        <a href="#" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i
-                                class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-12 gallery-grid gal_b gal_a">
-                <div class="gallery-single fix">
-                    <img src="../../uploads/gallery_img-04.jpg" class="img-fluid" alt="Image">
-                    <div class="img-overlay">
-                        <div class="project-name">
-                            <p>project name is project.
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                <!-- {{blog.meta | slice: 0:60}} -->
-                                <span>...</span>
-                            </p>
-                        </div>
-                        <a href="#" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i
-                                class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-12 gallery-grid gal_a gal_c">
-                <div class="gallery-single fix">
-                    <img src="../../uploads/gallery_img-05.jpg" class="img-fluid" alt="Image">
-                    <div class="img-overlay">
-                        <div class="project-name">
-                            <p>project name is project.
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                <!-- {{blog.meta | slice: 0:60}} -->
-                                <span>...</span>
-                            </p>
-                        </div>
-                        <a href="#" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i
-                                class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-12 gallery-grid gal_c gal_a">
-                <div class="gallery-single fix">
-                    <img src="../../uploads/gallery_img-06.jpg" class="img-fluid" alt="Image">
-                    <div class="img-overlay">
-                        <div class="project-name">
-                            <p>project name is project.
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                project name is project
-                                <!-- {{blog.meta | slice: 0:60}} -->
-                                <span>...</span>
-                            </p>
-                        </div>
-                        <a href="#" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i
-                                class="fa fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

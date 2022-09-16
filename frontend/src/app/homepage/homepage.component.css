@@ -104,7 +104,12 @@
     justify-content: center;
     align-items: center;
 }
-
+#portfolio .gallery-list .gallery-grid{
+    height: 360px;
+}
+#portfolio .gallery-list{
+    height: auto !important;
+}
 .gallery-single .hoverbutton .fa {
     font-size: 30px;
 }
@@ -125,10 +130,15 @@
     gap: 6px;
     border: none;
 }
-
+.filter-button-group button{
+    border-radius: 6px;
+    border-radius:0px 2px 4px 0px #ccc;
+}
 .filter-button-group button.active {
     background: #333333;
+    outline: none;
     color: #fff;
+    border-radius: 6px;
     box-shadow: -1px 8px 10px 2px rgb(0 0 0 / 30%);
 }
 
