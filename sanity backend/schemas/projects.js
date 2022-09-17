@@ -15,6 +15,11 @@ export default {
             rows: 5
         },
         {
+            title: 'Host URL',
+            name: 'hostUrl',
+            type: 'url'
+        },
+        {
             title: 'Frontend',
             name: 'front',
             type: 'text',
