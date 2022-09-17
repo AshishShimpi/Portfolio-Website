@@ -61,7 +61,8 @@
 }
 
 .gallery-single {
-    border-radius: 6px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 75%);
 }
 
 .gallery-single img {
@@ -190,7 +191,7 @@
     cursor: pointer;
 }
 
-.btn-hover-new::after {
+#blog .btn-hover-new::after {
     left: 18px;
 }
 
