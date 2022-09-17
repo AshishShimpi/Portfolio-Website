@@ -67,7 +67,7 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (profile) => {
                     this.profile = profile;
-                    console.log(`profile received is`, profile);
+                    // console.log(`profile received is`, profile);
                 },
                 error: (error) => {
                     console.error('failed to fetch Profile\n', error);
@@ -80,7 +80,7 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (projects) => {
                     this.projects = projects; 
-                    console.log('All projects', projects);
+                    // console.log('All projects', projects);
                 },
                 error: (error) => {
                     console.error('failed to fetch Projects\n', error);
@@ -88,12 +88,17 @@ export class HomepageComponent implements OnInit {
             })
     }
 
-    openDialog(project: Project): void {
+    openDialog(projectData: Project): void {
         this.dialog.open(InfoDialogComponent, {
-            // width: '700px',
-            // height: '500px',
-            data: { project: project},
+            width: '100%',
+            height: '80%',
+            data: projectData,
+            autoFocus: false ,
         })
+        console.log('this is data',projectData);
+        
+        document.documentElement.classList.remove("cdk-global-scrollblock");
+
     }
 
 }

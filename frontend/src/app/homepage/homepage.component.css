@@ -103,6 +103,8 @@
     border-radius: 50px;
     justify-content: center;
     align-items: center;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 #portfolio .gallery-list .gallery-grid{
     height: 360px;

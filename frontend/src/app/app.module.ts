@@ -9,7 +9,7 @@ import { BlogsListingComponent } from './blogs-listing/blogs-listing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
     declarations: [
         AppComponent,
@@ -23,6 +23,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         MatDialogModule,
+        MatIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]

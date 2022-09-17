@@ -1,0 +1,51 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+
+h1, h4{
+    color: white;
+}
+.container{
+    gap: 50px;
+    color: white; 
+    padding: 14px !important;
+}
+.mat-dialog-title{
+    margin-left: 15px;
+}
+
+.technologies mat-icon{
+    color: rgb(5, 163, 255);
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+}
+.technologies p{
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    align-items: center;
+}
+
+.container .info .git mat-icon{
+    font-size: 30px;
+    width: 30px;
+    color: white;
+}
+
+.container .info button{
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 2rem;
+    background: transparent;
+    color: white;
+}
+
+.container .image img{
+    box-shadow: 0px 0px 8px 2px rgb(255 255 255);
+    max-width: fit-content;
+    margin-top: 10px;
+    margin-left: 7px;
+}
+

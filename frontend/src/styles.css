@@ -4,3 +4,17 @@
 @tailwind utilities; */
 html, body { height: 100%; }
 body { margin: 0;}
+
+.cdk-overlay-container{
+    z-index: 1050;
+}
+.cdk-overlay-dark-backdrop {
+    background: rgb(0 0 0 / 90%);
+}
+.mat-dialog-container{
+    background: transparent;
+    box-shadow: 0px 0px 0px 0px;
+}
+.mat-dialog-content{
+    margin: 0 !important;
+}

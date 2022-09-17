@@ -9,6 +9,7 @@ export interface Project {
     other: string
     image: Image
     name: string
+    about: string
     projectUrl: string
   }
   

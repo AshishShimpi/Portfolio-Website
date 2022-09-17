@@ -17,10 +17,6 @@ export class BlogsListingComponent implements OnInit {
     ngOnInit(): void {
         this.getBlogs();
     }
-
-    getImage(source: any) {
-        return this.sanityService.urlFor(source);
-    }
     
     getBlogs(): void {
         this.sanityService.getBlogs()

@@ -9,6 +9,12 @@ export default {
             title: 'Name',
         },
         {
+            title: 'About',
+            name: 'about',
+            type: 'text',
+            rows: 5
+        },
+        {
             title: 'Frontend',
             name: 'front',
             type: 'text',
