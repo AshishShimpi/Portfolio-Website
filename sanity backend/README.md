@@ -1,6 +1,14 @@
-# Sanity Clean Content Studio
+# Sanity Studio
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+> ### **Only Author access is enabled.**
+
+## Development server
+
+Run `sanity start` for a dev server. Navigate to `http://localhost:3333/`.
+
+## Sanity studio deployed at [Sanity](https://ashish-portfolio.sanity.studio/desk)
+
+***
 
 Now you can do the following things:
 
@@ -8,4 +16,3 @@ Now you can do the following things:
 - [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
 - [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
 
-deployed at [sanity](https://ashish-portfolio.sanity.studio/)
