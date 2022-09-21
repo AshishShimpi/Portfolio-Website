@@ -11,6 +11,7 @@ export interface Project {
     name: string
     about: string
     projectUrl: string
+    hostUrl: string
   }
   
   export interface Image {

@@ -8,6 +8,10 @@
     justify-content: center;
 }
 
+.container .message-box a{
+    color: green;
+}
+
 .sim-btn,
 .right-box-pro img,
 .right-box-pro::before {

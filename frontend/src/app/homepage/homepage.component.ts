@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { toHTML } from '@portabletext/to-html';
 import { SanityService } from '../../services/sanity.service';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 import { Blog } from '../models/blog.models';
@@ -8,7 +9,8 @@ import { Project } from '../models/project.models';
 @Component({
     selector: 'app-homepage',
     templateUrl: './homepage.component.html',
-    styleUrls: ['./homepage.component.css']
+    styleUrls: ['./homepage.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class HomepageComponent implements OnInit {
 
@@ -32,17 +34,26 @@ export class HomepageComponent implements OnInit {
         name,
         pic,
         email,
+        about,
         resume{asset->{url}},
         contact }[0]`;
 
     blogs: Blog[] = [];
     profile: Profile;
     projects: Project[] = [];
+    about : string;
 
     ngOnInit(): void {
         this.getProfile();
         this.getBlogs();
         this.getProjects();
+    }
+
+    @HostListener('window:load', ['$event'])
+    scroll(){
+        setTimeout(()=>{
+            window.scroll(0,38);
+        }, 100);
     }
 
     getImage(source: any) {
@@ -54,7 +65,6 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (blogs) => {
                     this.blogs = blogs;
-                    // console.log(blogs);
                 },
                 error: (error) => {
                     console.error('failed to fetch blogs\n', error);
@@ -67,7 +77,10 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (profile) => {
                     this.profile = profile;
-                    // console.log(`profile received is`, profile);
+                    this.about =  toHTML(profile.about, {
+                        onMissingComponent: false,
+                    });
+                    // console.log(`profile received is`, profile,this.about);
                 },
                 error: (error) => {
                     console.error('failed to fetch Profile\n', error);
@@ -80,7 +93,6 @@ export class HomepageComponent implements OnInit {
             .subscribe({
                 next: (projects) => {
                     this.projects = projects; 
-                    // console.log('All projects', projects);
                 },
                 error: (error) => {
                     console.error('failed to fetch Projects\n', error);
@@ -95,10 +107,7 @@ export class HomepageComponent implements OnInit {
             data: projectData,
             autoFocus: false ,
         })
-        console.log('this is data',projectData);
-        
         document.documentElement.classList.remove("cdk-global-scrollblock");
-
     }
 
 }

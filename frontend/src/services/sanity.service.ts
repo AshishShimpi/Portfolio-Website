@@ -24,32 +24,31 @@ export class SanityService {
         slug }`;
     private defaultPeojectQuery: string = `*[_type == "projects"]`;
 
-    sanityClientCredentials = {
-        option: sanityClient({
+    sanityClientCredentials = sanityClient({
             projectId: "ctnstz34",
             dataset: "production",
             apiVersion: '2022-08-12',
             useCdn: false
-        })
-    }
+        });
+    
 
     urlFor = (source: any) =>
-        imageUrlBuilder(this.sanityClientCredentials.option).image(source);
+        imageUrlBuilder(this.sanityClientCredentials).image(source);
 
     getBlogs(query: string = this.defaultBlogQuery): Observable<Blog[]> {
-        return scheduled(this.sanityClientCredentials.option.fetch(
+        return scheduled(this.sanityClientCredentials.fetch(
             query
         ), asapScheduler);
     }
 
     getProfle(query: string): Observable<Profile> {
-        return scheduled(this.sanityClientCredentials.option.fetch(
+        return scheduled(this.sanityClientCredentials.fetch(
             query
         ), asapScheduler);
     }
 
     getProjects(query: string = this.defaultPeojectQuery ): Observable<Project[]> {
-        return scheduled(this.sanityClientCredentials.option.fetch(
+        return scheduled(this.sanityClientCredentials.fetch(
             query
         ), asapScheduler);
     }

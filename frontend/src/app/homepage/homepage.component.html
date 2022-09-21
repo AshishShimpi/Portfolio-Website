@@ -13,11 +13,11 @@
 </div>
 <p [innerHtml] = "content"> </p> -->
 
-<div id="preloader">
+<!-- <div id="preloader">
     <div id="main-ld">
         <div id="loader"></div>
     </div>
-</div>
+</div> -->
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -30,7 +30,6 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
-            Menu
             <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -64,7 +63,7 @@
 <section id="home" class="main-banner parallaxie" style="background: url('../../uploads/background.jpg')">
     <div class="heading">
         <h1>Hello i'm {{profile.name}}</h1>
-        <p>"Welcome to my Portfolio Website"</p>
+        <p>Welcome to my Portfolio Website</p>
         <h3 class="cd-headline clip is-full-width">
             <span>I am&nbsp;</span>
             <span class="cd-words-wrapper">
@@ -107,14 +106,9 @@
             <div class="col-md-7">
                 <div class="message-box" style="font-size: 18px;">
                     <h2>About {{profile.name}}.</h2>
-                    <p>&nbsp;&nbsp; I am B.E. Computer 2021 passout. I have <b>8 months</b> of full time experience as a
-                        Software Engineer
-                        at <b>Zeus Learning LTD</b> and have thorough knowledge in
-                        <u>Angular, Django, MySQL</u> stack.
-                        I have done Internship as <b>Blockchain Intern</b>.
-                    </p>
+                    <div [innerHtml] = "about"> </div>
 
-                    <a href="{{profile.resume.asset.url }}?&dl=" class="sim-btn btn-hover-new"
+                    <a href="{{profile.resume.asset.url}}?&dl=" class="sim-btn btn-hover-new"
                         data-text="Download CV"><span>Download CV</span></a>
                 </div><!-- end messagebox -->
             </div><!-- end col -->

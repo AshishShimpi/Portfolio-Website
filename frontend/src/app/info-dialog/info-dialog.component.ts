@@ -18,7 +18,11 @@ export class InfoDialogComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        console.log('project data',this.projectData,this.projectData.name);
+        console.log('project data',this.projectData);
+        if( this.projectData.hostUrl === undefined){
+            this.projectData.hostUrl = '#';
+        }
+        
 
     }
     getImage(){

@@ -21,10 +21,10 @@ export class BlogComponent implements OnInit {
     id: string;
 
     ngOnInit(): void {
-        // console.log(`blog works`);
+        
         this.route.queryParams.subscribe(params => {
             this.id = params['id'];
-            // console.log('id from url is ', this.id);
+            
         });
         this.getBlog();
     }

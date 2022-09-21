@@ -6,6 +6,7 @@ export interface Profile {
     contact: number
     email: string
     name: string
+    about: any[];
     pic: Pic
     resume: Resume
     _updatedAt: string
