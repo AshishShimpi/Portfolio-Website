@@ -27,6 +27,7 @@ export class BlogComponent implements OnInit {
             
         });
         this.getBlog();
+        window.scroll(0,0);
     }
 
     getImage(source: any) {
@@ -42,8 +43,8 @@ export class BlogComponent implements OnInit {
             createdAt,
             meta,
             poster,
-            titles,
-            slug }`
+            titles
+         }`
         ).subscribe({
             next: (blogs) => {
                 this.blog = blogs[0];
@@ -58,8 +59,7 @@ export class BlogComponent implements OnInit {
                     }
                 });
             },
-            error: (err) => console.error(`query blogs failed`, err)
-
+            error: (err) => console.error(`query to blog failed`, err)
         })
     }
 

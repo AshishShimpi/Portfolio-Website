@@ -50,10 +50,30 @@ code {
     color: white;
 }
 
+.main{
+    position: relative;
+    margin-top: -8rem;
+}
+
 .main .content img {
     height: 300px;
     width: 100%;
+}
 
+.main .content p,h1,h2,h3,h4,h5,h6{
+    letter-spacing: 1px;
+    line-height: 1.5 !important;
+}
+
+.main .content p a{
+    color: green;
+}
+
+.main .content ul, li, ol{
+	list-style-type: disc;
+}
+.main .content span{
+	text-decoration: underline;
 }
 
 @media screen and (max-width: 400px) {}

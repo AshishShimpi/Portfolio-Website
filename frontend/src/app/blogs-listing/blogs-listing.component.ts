@@ -16,6 +16,8 @@ export class BlogsListingComponent implements OnInit {
 
     ngOnInit(): void {
         this.getBlogs();
+        window.scroll(0,0);
+
     }
     
     getBlogs(): void {
