@@ -42,6 +42,10 @@
     color: green;
 }
 
+.container .message-box .about span{
+    text-decoration: underline;
+}
+
 .sim-btn,
 .right-box-pro img,
 .right-box-pro::before {
