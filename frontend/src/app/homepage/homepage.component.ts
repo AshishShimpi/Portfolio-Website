@@ -102,8 +102,7 @@ export class HomepageComponent implements OnInit {
 
     openDialog(projectData: Project): void {
         this.dialog.open(InfoDialogComponent, {
-            width: '100%',
-            height: '80%',
+            width: '90%',
             data: projectData,
             autoFocus: false ,
         })

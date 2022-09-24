@@ -246,15 +246,21 @@
 #contact .container .section-title b {
     font-size: 25px;
 }
+.cdk-overlay-pane{
+    height: 80%;
+}
 
-
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 769px) {
     .navbar .container .logo {
         height: 40px;
     }
 
     #contact .container .section-title b {
         font-size: 20px;
+    }
+    .cdk-overlay-pane{
+        max-width: 100% !important;
+        height: 100%;
     }
 }
 
