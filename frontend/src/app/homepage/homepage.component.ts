@@ -36,7 +36,9 @@ export class HomepageComponent implements OnInit {
         email,
         about,
         resume{asset->{url}},
-        contact }[0]`;
+        contact,
+        backg{asset->{url}},
+    }[0]`;
 
     blogs: Blog[] = [];
     profile: Profile;

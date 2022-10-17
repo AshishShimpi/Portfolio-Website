@@ -19,9 +19,10 @@ export class InfoDialogComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('project data',this.projectData);
-        if( this.projectData.hostUrl === undefined){
-            this.projectData.hostUrl = '#';
-        }
+        console.log(this.projectData.hostUrl);
+        // if( this.projectData.hostUrl === undefined){
+        //     this.projectData.hostUrl = '#';
+        // }
         
 
     }

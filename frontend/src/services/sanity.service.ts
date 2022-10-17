@@ -13,6 +13,7 @@ import { Blog } from '../app/models/blog.models';
 export class SanityService {
 
     constructor() { }
+
     private defaultBlogQuery: string = `*[_type == "blog"] {
         _id,
         author->{name},
@@ -22,7 +23,8 @@ export class SanityService {
         "original_url":poster{asset->{url}},
         titles,
         slug }`;
-    private defaultPeojectQuery: string = `*[_type == "projects"]`;
+
+    private defaultPeojectQuery: string = `*[_type == "projects"] | order(rank desc)`;
 
     sanityClientCredentials = sanityClient({
             projectId: "ctnstz34",

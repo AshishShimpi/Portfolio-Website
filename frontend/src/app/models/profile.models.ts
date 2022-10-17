@@ -8,11 +8,18 @@ export interface Profile {
     name: string
     about: any[];
     pic: Pic
+    backg: background
     resume: Resume
     _updatedAt: string
   }
   
-  export interface Pic {}
+  export interface Pic {
+    asset: Asset2
+  }
+
+  export interface background {
+    asset: Asset2
+  }
   
   export interface Resume {
     asset: Asset2

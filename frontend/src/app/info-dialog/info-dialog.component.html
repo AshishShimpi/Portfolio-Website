@@ -38,7 +38,7 @@
                 <span>{{projectData.other}}</span>
             </p>
         </div>
-        <div class="button md:text-center">
+        <div class="button md:text-center" *ngIf="projectData.hostUrl">
             <button class=" border-4 border-sky-600"><a href="{{projectData.hostUrl}}"><span> Live Demo</span></a>  </button>
         </div>
     </div>

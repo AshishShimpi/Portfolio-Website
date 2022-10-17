@@ -63,7 +63,16 @@ export default {
             name: 'contact',
             type: 'number',
             title: 'Contact Number',
-        }
+        },
+
+        {
+            name: 'backg',
+            type: 'image',
+            title: 'Background Pic',
+            options: {
+                hotspot: true // <-- Defaults to false
+            }
+        },
     ]
 
 }
